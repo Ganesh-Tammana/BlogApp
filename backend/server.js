@@ -10,12 +10,15 @@ dotenv.config(); // Load environment variables from .env file
 const app = express();
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 // Middleware setup
-app.use(cors(
-    {
-        origin: FRONTEND_URL,
-        credentials: true // Allow cookies & auth headers if needed
-    }
-)); // Enable Cross-Origin Resource Sharing (CORS)
+app.use(
+    cors({
+        origin: [FRONTEND_URL], // Ensure it's an array for flexibility
+        methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
+        credentials: true, // Allow cookies & auth headers
+        allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+    })
+); // Enable Cross-Origin Resource Sharing (CORS)
+
 app.use(express.json()); // Parse incoming JSON requests
 
 // Routes setup
