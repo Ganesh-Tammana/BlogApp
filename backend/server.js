@@ -24,5 +24,10 @@ mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 5000; // Set default port if not defined in environment variables
 
-// Start the server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.get("/", (req, res) => {
+    res.send("Backend is running on Vercel! 🚀");
+});
+  
+  // **Important for Vercel** → Don't use `app.listen()`
+export default app;
