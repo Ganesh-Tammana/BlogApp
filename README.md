@@ -5,9 +5,13 @@ Welcome to our Blog Application! 🎉 This is a simple yet powerful platform whe
 🚀 Features
 
 ✅ Create a Blog – Write and share your thoughts effortlessly.
+
 ✅ Edit Blog Posts – Made a mistake? No worries! Edit your blog anytime.
+
 ✅ View Blogs – Read all published blogs in an elegant UI.
+
 ✅ Delete Blogs – Remove posts you no longer need.
+
 ✅ Responsive Design – Optimized for all devices.
 
 🛠 Tech Stack
