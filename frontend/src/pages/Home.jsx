@@ -23,7 +23,6 @@ const Home = () => {
         const fetchBlogs = async () => {
             try {
                 // API request to fetch blogs with pagination
-                
                 const res = await axios.get(`${BASE_URL}/api/blogs?page=${currentPage}&limit=6`);
                 setBlogs(res.data.blogs); // Store fetched blogs
                 setTotalPages(res.data.totalPages || 0); // Store total pages

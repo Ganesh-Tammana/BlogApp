@@ -8,9 +8,14 @@ import userRoutes from './routes/userRoutes.js';
 dotenv.config(); // Load environment variables from .env file
 
 const app = express();
-
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 // Middleware setup
-app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS)
+app.use(cors(
+    {
+        origin: FRONTEND_URL,
+        credentials: true // Allow cookies & auth headers if needed
+    }
+)); // Enable Cross-Origin Resource Sharing (CORS)
 app.use(express.json()); // Parse incoming JSON requests
 
 // Routes setup
@@ -25,7 +30,7 @@ mongoose.connect(process.env.MONGO_URL)
 const PORT = process.env.PORT || 5000; // Set default port if not defined in environment variables
 
 
-// app.listen(PORT, ()=> console.log("Server running"))
+app.listen(PORT, ()=> console.log("Server running"))
 
 app.get("/", (req, res) => {
     console.log("njaj")
