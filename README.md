@@ -11,6 +11,7 @@ Welcome to our Blog Application! 🎉 This is a simple yet powerful platform whe
 ✅ Responsive Design – Optimized for all devices.
 
 🛠 Tech Stack
+
 Frontend:
 React.js (Vite) ⚡
 TailwindCSS 🎨
@@ -22,6 +23,7 @@ MongoDB (for data storage) 🗄️
 JWT (for authentication) 🔑
 
 💻 Getting Started
+
 Follow these steps to run the project locally:
 1️⃣ Clone the Repository:
 https://github.com/Ganesh-Tammana/BlogApp.git
@@ -40,6 +42,7 @@ Backend:
 npm start (The backend at http://localhost:5000)
 
 🔗Api Endpoints
+
 GET /api/blogs → Fetch all blogs
 GET /api/blogs/:id → Fetch a single blog
 POST /api/blogs → Create a blog
