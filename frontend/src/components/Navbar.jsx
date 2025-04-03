@@ -86,7 +86,7 @@ const Navbar = () => {
                                 <li>
                                     <Link
                                         to="/signup"
-                                        className="bg-indigo-700 px-3 py-1 rounded block text-center"
+                                        className=" bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded block text-center"
                                         onClick={() => setOpen(false)}
                                     >
                                         Signup

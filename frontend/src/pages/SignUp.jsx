@@ -76,7 +76,7 @@ const SignUp = () => {
                 <label className='block text-gray-700'>Email</label>
                 <input 
                     type='email'
-                    className='w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500'
+                    className='w-full p-2 border rounded focus:outline-none focus:ring-0'
                     value={email}
                     onChange={(e) => setEmail(e.target.value.trim())}
                     required
@@ -88,7 +88,7 @@ const SignUp = () => {
                 <label className='block text-gray-700'>Password</label>
                 <input 
                     type='password'
-                    className='w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500'
+                    className='w-full p-2 border rounded focus:outline-none focus:ring-0'
                     value={password}
                     onChange={(e) => setPassword(e.target.value.trim())}
                     required
@@ -100,7 +100,7 @@ const SignUp = () => {
                 <label className='block text-gray-700'>Confirm Password</label>
                 <input 
                     type='password'
-                    className='w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500'
+                    className='w-full p-2 border rounded focus:outline-none focus:ring-0'
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value.trim())}
                     required
@@ -111,7 +111,7 @@ const SignUp = () => {
             {error && <div className='text-red-500 mb-4'>{error}</div> }
 
             {/* Signup Button */}
-            <button type="submit" className="w-full p-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded">
+            <button type="submit" className="w-full p-2  bg-orange-500 hover:bg-orange-600 text-white rounded">
                 Sign Up
             </button>
 
