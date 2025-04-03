@@ -9,7 +9,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
+  const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
   // Redirect to home if the user is already logged in
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -53,7 +53,7 @@ const SignUp = () => {
 
     try {
       // Send signup request to the backend
-      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+      const response = await axios.post(`${BASE_URL}/auth/signup`, {
         email: trimmedEmail,
         password: trimmedPassword
       });

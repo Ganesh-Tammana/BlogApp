@@ -10,7 +10,7 @@ const BlogList = () => {
     const [currentPage, setCurrentPage] = useState(1); // State to track current page
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
-
+    const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId"); // Retrieve user ID from local storage
     const isLoggedIn = localStorage.getItem("token"); // Check if user is logged in
@@ -29,7 +29,7 @@ const BlogList = () => {
         const fetchUserBlogs = async () => {
             try {
                 // API request to get user's blogs with pagination
-                const res = await axios.get(`http://localhost:5000/api/blogs/user/${userId}?page=${currentPage}&limit=6`);
+                const res = await axios.get(`${BASE_URL}/api/blogs/user/${userId}?page=${currentPage}&limit=6`);
                 setBlogs(res.data.blogs); // Set blog data
                 setTotalPages(res.data.totalPages || 0); // Set total pages
             } catch (err) {

@@ -9,6 +9,7 @@ const Login = () => {
   // State for handling login errors
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
 
   // Redirect user if already logged in
   useEffect(() => {
@@ -29,7 +30,7 @@ const Login = () => {
 
     try {
       // Send login request to the backend
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, {
         email,
         password
       });

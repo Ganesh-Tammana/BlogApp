@@ -15,7 +15,7 @@ const Home = () => {
     const [totalPages, setTotalPages] = useState(0);
     // State to track the current page
     const [currentPage, setCurrentPage] = useState(1);
-    
+    const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
     const navigate = useNavigate();
 
     // Fetch blogs when the component mounts or when the current page changes
@@ -23,7 +23,8 @@ const Home = () => {
         const fetchBlogs = async () => {
             try {
                 // API request to fetch blogs with pagination
-                const res = await axios.get(`http://localhost:5000/api/blogs?page=${currentPage}&limit=6`);
+                
+                const res = await axios.get(`${BASE_URL}/api/blogs?page=${currentPage}&limit=6`);
                 setBlogs(res.data.blogs); // Store fetched blogs
                 setTotalPages(res.data.totalPages || 0); // Store total pages
             } catch (err) {

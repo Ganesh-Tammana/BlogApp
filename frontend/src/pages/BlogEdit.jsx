@@ -10,10 +10,11 @@ const BlogEdit = () => {
     const [blog, setBlog] = useState({ title: '', content: '' }); // State for editable blog fields
     const [loading, setLoading] = useState(true); // State for loading status
     const [error, setError] = useState(""); // State to handle errors
+    const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
 
     // Fetch the blog details when component mounts
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/blogs/${id}`)
+        axios.get(`${BASE_URL}/api/blogs/${id}`)
             .then((res) => {
                 setBlog(res.data); // Set blog details to state
                 setOriginalBlog(res.data); // Store original details for change detection
@@ -40,7 +41,7 @@ const BlogEdit = () => {
         e.preventDefault();
         if (!isModified) return; // Prevent submission if no changes made
         try {
-             await axios.put(`http://localhost:5000/api/blogs/${id}`, 
+             await axios.put(`${BASE_URL}/api/blogs/${id}`, 
                 { title: blog.title, content: blog.content }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`, // Send auth token

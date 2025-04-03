@@ -12,6 +12,7 @@ const BlogCreation = () => {
 
     // Hook for navigating between routes
     const navigate = useNavigate();
+    const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
 
     // Function to handle blog submission
     const handleSubmit = async (e) => {
@@ -28,7 +29,7 @@ const BlogCreation = () => {
             const token = localStorage.getItem('token'); // Retrieve authentication token
             
             // Send a POST request to the backend API to create a new blog
-            const response = await axios.post('http://localhost:5000/api/blogs/',
+            const response = await axios.post(`${BASE_URL}/api/blogs/`,
                 { title, content }, // Sending blog data
                 {
                     headers: {

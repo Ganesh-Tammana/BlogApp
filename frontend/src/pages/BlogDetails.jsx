@@ -8,12 +8,13 @@ const BlogDetails = () => {
   const [loading, setLoading] = useState(true); // State to manage loading state
   const [error, setError] = useState(null); // State to store any errors
   const navigate = useNavigate(); // Hook for navigation
+  const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
         // Fetch blog data from API using the blog ID
-        const response = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const response = await axios.get(`${BASE_URL}/api/blogs/${id}`);
         setBlog(response.data); // Store fetched blog details in state
       } catch (err) {
         setError('Error fetching blog data'); // Set error message if request fails
@@ -36,7 +37,7 @@ const BlogDetails = () => {
         return;
       }
       // Send DELETE request to API
-      await axios.delete(`http://localhost:5000/api/blogs/${id}`, {
+      await axios.delete(`${BASE_URL}/api/blogs/${id}`, {
         headers: {
           Authorization: `Bearer ${token}` // Send authentication token
         }
