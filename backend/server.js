@@ -19,16 +19,17 @@ app.use('/api/auth', userRoutes); // Route for handling user authentication
 
 // Database connection
 mongoose.connect(process.env.MONGO_URL)
-    .then(() => console.log("MongoDB connected")) // Success message on successful connection
-    .catch(err => console.error('MongoDB connection failed', err)); // Error handling for connection failure
+.then(() => console.log("MongoDB connected")) // Success message on successful connection
+.catch(err => console.error('MongoDB connection failed', err)); // Error handling for connection failure
 
 const PORT = process.env.PORT || 5000; // Set default port if not defined in environment variables
 
 
-// app.get("/", (req, res) => {
-//     console.log("njaj")
-//     res.send("Backend is running on Vercel! 🚀");
-// });
-app.listen(PORT, ()=> console.log("Server running"))
+// app.listen(PORT, ()=> console.log("Server running"))
+
+app.get("/", (req, res) => {
+    console.log("njaj")
+    res.send("Backend is running on Vercel! 🚀");
+});
 
 export default app;
