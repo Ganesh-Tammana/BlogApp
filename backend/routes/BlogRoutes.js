@@ -40,6 +40,7 @@ router.get('/', async (req, res) => {
     const blogs = await Blog.find().skip(skip).limit(limit).sort({ createdAt: -1 });
     const totalBlogs = await Blog.countDocuments();
 
+    //sending data to the frontend
     res.json({
       blogs,
       totalPages: Math.ceil(totalBlogs / limit),
